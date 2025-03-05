@@ -7,7 +7,7 @@ import { SiCodechef } from "react-icons/si";
 
 const AboutSection = () => {
     return (
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 py-20 px-5">
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 py-20 px-5 overflow-x-hidden">
 
             {/* Image Section with Breathing and Scroll Animation */}
             <motion.div

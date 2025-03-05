@@ -16,7 +16,7 @@ const NavBar = () => {
         setShowNavbar(!showNavbar);
     };
 
-    // function to remove menu bar
+    
 
     return (
         <div className="fixed top-0 w-full z-50">

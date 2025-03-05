@@ -1,4 +1,9 @@
 import imageOne from "./Image-5-180x180.png";
+import chefOne from "./chef-1.jpg";
+import chefTwo from "./chef-2.jpg";
+import chefThree from "./chef-3.jpg";
+import chefFour from "./chef-4.jpg";
+import chefFive from "./chef-5.jpg";
 
 export const SlideFoodMenu = [
 	{
@@ -108,24 +113,30 @@ export const chefsData = [
 		id: 1,
 		name: "Chef John Doe",
 		position: "Head Chef",
-		image: "path/to/chef1.jpg", // Make sure to add the correct path to the image
+		image: chefOne,
 	},
 	{
 		id: 2,
 		name: "Chef Jane Smith",
 		position: "Sous Chef",
-		image: "path/to/chef2.jpg", // Add the correct image path
+		image: chefTwo,
 	},
 	{
 		id: 3,
 		name: "Chef Mike Lee",
 		position: "Pastry Chef",
-		image: "path/to/chef3.jpg", // Add the correct image path
+		image: chefThree,
 	},
 	{
 		id: 4,
 		name: "Chef Sarah Williams",
 		position: "Grill Master",
-		image: "path/to/chef4.jpg", // Add the correct image path
+		image: chefFour,
+	},
+	{
+		id: 5,
+		name: "Chef Mary",
+		position: "Supervisor",
+		image: chefFive,
 	},
 ];

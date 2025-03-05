@@ -15,22 +15,22 @@ const App = () => {
     <>
       <Navbar />
 
-      <Layout>
-
-
-        <Routes>
 
 
 
-          <Route index element={<Home />} />
-          <Route path='menu' element={<Menu />} />
-          <Route path='shop' element={<Shop />} />
-          <Route path='blog' element={<Blog />} />
-          <Route path='contact' element={<Contact />} />
-          <Route path='*' element={<NotFound />} />
+      <Routes>
 
-        </Routes>
-      </Layout>
+
+
+        <Route index element={<Home />} />
+        <Route path='menu' element={<Menu />} />
+        <Route path='shop' element={<Shop />} />
+        <Route path='blog' element={<Blog />} />
+        <Route path='contact' element={<Contact />} />
+        <Route path='*' element={<NotFound />} />
+
+      </Routes>
+
       <Footer />
 
     </>
