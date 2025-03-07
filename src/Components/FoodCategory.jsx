@@ -50,11 +50,11 @@ const FoodCategory = () => {
                         </div>
 
                         {/* Icons */}
-                        <div className="flex items-center justify-between md:justify-center my-5 gap-6">
+                        <div className="flex items-center justify-center my-5 gap-6">
                             {/* Eye & Heart (Hidden Initially, Visible on Hover) */}
-                            <FaRegEye className="text-[2.5rem] bg-white text-black hover:bg-primary hover:text-white p-3 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            <IoMdCart className="text-[2.5rem] bg-secondary text-white hover:bg-primary duration-500 p-3 rounded-full shadow-md" />
-                            <FaRegHeart className="text-[2.5rem] bg-white text-black hover:bg-primary hover:text-white p-3 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <FaRegEye className="text-[3rem] bg-white text-black hover:bg-primary hover:text-white p-4 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            <IoMdCart className="text-[3rem] bg-secondary text-white hover:bg-primary duration-300 p-4 rounded-full shadow-md" />
+                            <FaRegHeart className="text-[3rem] bg-white text-black hover:bg-primary hover:text-white p-4 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         </div>
                     </div>
                 ))}

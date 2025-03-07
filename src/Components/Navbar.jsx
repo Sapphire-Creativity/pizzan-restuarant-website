@@ -1,14 +1,20 @@
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import logo from "../assets/logo.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
-import { FaOpencart } from "react-icons/fa6";
+import { FaOpencart, FaRegHeart } from "react-icons/fa6";
 import { IoIosSend } from "react-icons/io";
 import { TbMenu3 } from "react-icons/tb";
 import { HiChevronRight } from "react-icons/hi";
+import { MenuContext } from '../Context/MenuContext'
+import { SlideFoodMenu } from '../assets/data'
 const NavBar = () => {
     const [showNavbar, setShowNavbar] = useState(false);
+    const { updateCartItemCount } = useContext(MenuContext)
+
+
+    const navigate = useNavigate()
 
 
     //function to toggle Navbar
@@ -16,7 +22,7 @@ const NavBar = () => {
         setShowNavbar(!showNavbar);
     };
 
-    
+
 
     return (
         <div className="fixed top-0 w-full z-50">
@@ -56,7 +62,18 @@ const NavBar = () => {
                 <div className="flex items-center justify-center gap-4 sm:gap-8">
                     <div className="flex items-center justify-center gap-2 sm:gap-5">
                         <FiSearch className="p-3 rounded-full border border-primary text-primary hover:text-secondary hover:border-secondary transition-all duration-300 text-[2.5rem]" />
-                        <FaOpencart className="hidden sm:inline-flex p-3 rounded-full border border-primary text-primary hover:text-secondary hover:border-secondary transition-all duration-300 text-[2.5rem]" />
+
+
+                        <FaOpencart onClick={() => {
+                            navigate("/cart");
+                            window.scrollTo(0, 0);
+                        }} className="hidden sm:inline-flex p-3 rounded-full border border-primary text-primary hover:text-secondary hover:border-secondary transition-all duration-300 text-[2.5rem]" />
+
+                        <FaRegHeart onClick={() => {
+                            navigate("/favourite-items");
+                            window.scrollTo(0, 0);
+                        }} className="hidden sm:inline-flex p-3 rounded-full border border-primary text-primary hover:text-secondary hover:border-secondary transition-all duration-300 text-[2.5rem]" />
+
                     </div>
 
                     <button className="btn btn-primary">
@@ -111,6 +128,11 @@ const NavBar = () => {
                             <NavLink to="shop" onClick={toggleNavbar}>
                                 <li className="flex justify-between items-center group hover:text-red-500 transition duration-300">
                                     Shop <HiChevronRight className="text-lg group-hover:translate-x-1 transition-transform duration-300" />
+                                </li>
+                            </NavLink>
+                            <NavLink to="cart" onClick={toggleNavbar}>
+                                <li className="flex justify-between items-center group hover:text-red-500 transition duration-300">
+                                    Cart <HiChevronRight className="text-lg group-hover:translate-x-1 transition-transform duration-300" />
                                 </li>
                             </NavLink>
                             <NavLink to="blog" onClick={toggleNavbar}>
