@@ -4,11 +4,10 @@ import logo from "../assets/logo.svg";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 import { FaOpencart, FaRegHeart } from "react-icons/fa6";
-import { IoIosSend } from "react-icons/io";
+import { CgProfile } from "react-icons/cg";
 import { TbMenu3 } from "react-icons/tb";
 import { HiChevronRight } from "react-icons/hi";
 import { MenuContext } from '../Context/MenuContext'
-import { SlideFoodMenu } from '../assets/data'
 const NavBar = () => {
     const [showNavbar, setShowNavbar] = useState(false);
     const { updateCartItemCount } = useContext(MenuContext)
@@ -38,7 +37,7 @@ const NavBar = () => {
 
                 {/* Menu */}
                 <div className="hidden lg:flex">
-                    <ul className="flex items-center justify-center text-sm gap-5 md:gap-10 font-medium ">
+                    <ul className="flex items-center justify-center text-base gap-5 md:gap-10 font-medium ">
                         <NavLink to="/">
                             <li>Home</li>
                         </NavLink>
@@ -75,8 +74,8 @@ const NavBar = () => {
 
                     </div>
 
-                    <button className="btn btn-primary">
-                        Book an Order <IoIosSend />
+                    <button className="inline-block" onClick={() => navigate("/signin")}>
+                        <CgProfile className="p-3 rounded-full border border-primary text-primary hover:text-secondary hover:border-secondary transition-all duration-300 text-[2.5rem]" />
                     </button>
 
                     {/* Menu Icon */}

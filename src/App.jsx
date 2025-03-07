@@ -11,6 +11,9 @@ import NotFound from './Pages/NotFound'
 import Layout from './Components/Layout'
 import Cart from './Pages/Cart'
 import FavouriteItems from './Components/FavouriteItems'
+import SignIn from './Pages/SignIn'
+import SignUp from './Pages/SignUp'
+import Dashboard from './Pages/Dashboard'
 
 const App = () => {
   return (
@@ -25,6 +28,10 @@ const App = () => {
         <Route path='contact' element={<Contact />} />
         <Route path='cart' element={<Cart />} />
         <Route path='favourite-items' element={<FavouriteItems />} />
+        <Route path='signin' element={<SignIn />} />
+        <Route path='signup' element={<SignUp />} />
+        <Route path='dashboard' element={<Dashboard />} />
+
         <Route path='*' element={<NotFound />} />
 
       </Routes>
