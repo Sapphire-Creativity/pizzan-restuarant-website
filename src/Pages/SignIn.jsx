@@ -2,10 +2,12 @@ import React from 'react'
 import OtherHeader from '../Components/OtherHeader'
 import heroImage from "../assets/offer_banner_1.jpg";
 import { FaUser, FaEnvelope, FaLock, FaPaperPlane } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 const SignIn = () => {
+    const navigate = useNavigate()
     return (
         <>
-            <OtherHeader title="Sign In" subTitle="We are glad to have you back!" backgroundImage={heroImage} />
+            {/* <OtherHeader title="Sign In" subTitle="We are glad to have you back!" backgroundImage={heroImage} /> */}
 
             <div className="container">
                 <div className="w-full  sm:max-w-[30rem] mx-auto grid  grid-cols-1 items-center justify-center min-h-screen">

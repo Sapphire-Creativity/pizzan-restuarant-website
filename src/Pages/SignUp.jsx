@@ -8,7 +8,7 @@ const SignUp = () => {
     const navigate = useNavigate()
     return (
         <>
-            <OtherHeader title="Sign Up" subTitle="Welcome! Kindly create an account" backgroundImage={heroImage} />
+            {/* <OtherHeader title="Sign Up" subTitle="Welcome! Kindly create an account" backgroundImage={heroImage} /> */}
             <div className="container">
 
                 <div className="w-full  sm:max-w-[30rem] mx-auto grid  grid-cols-1 items-center justify-center min-h-screen">
