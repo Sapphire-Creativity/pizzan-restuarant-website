@@ -13,12 +13,21 @@ const getDefaultCart = () => {
 }
 const MenuContextProvider = (props) => {
 	const [cartItems, setCartItems] = useState(getDefaultCart)
-	const [favouriteItems, setFavouriteItems] = useState(SlideFoodMenu)
+	const [favouriteItems, setFavouriteItems] = useState([])
 
 	//Function to add favourite items
-	const addFavouriteItems = (itemId) => {
-		setFavouriteItems((prev) => ({ ...prev, [itemId]: prev[itemId] }))
-	}
+	const toggleFavouriteItem = (itemId) => {
+		console.log("Triggered");
+
+		setFavouriteItems((prev) => {
+			return prev.includes(itemId)
+				? prev.filter((id) => id !== itemId)
+				: [...prev, itemId];
+		});
+
+		setTimeout(() => console.log(favouriteItems), 0); // Ensures logging updated state
+	};
+
 
 	// Function to add to cart
 	const addToCart = (itemId) => {
@@ -51,7 +60,7 @@ const MenuContextProvider = (props) => {
 
 
 
-	const contextValue = { cartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, favouriteItems, addFavouriteItems }
+	const contextValue = { cartItems, addToCart, removeFromCart, updateCartItemCount, getTotalCartAmount, favouriteItems, toggleFavouriteItem }
 	console.log(cartItems)
 	return (
 		<MenuContext.Provider value={contextValue}>

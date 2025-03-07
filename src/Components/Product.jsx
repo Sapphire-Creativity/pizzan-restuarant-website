@@ -3,10 +3,11 @@ import { MenuContext } from '../Context/MenuContext'
 import { FaRegEye, FaRegHeart, FaStar } from 'react-icons/fa'
 import { IoMdCart } from 'react-icons/io'
 
+
 const Product = (props) => {
     const { id, name, image, category, price, amountInStore } = props.data
 
-    const { addToCart, cartItems } = useContext(MenuContext)
+    const { addToCart, cartItems, favouriteItems, toggleFavouriteItem } = useContext(MenuContext)
     const cartItemAmount = cartItems[id]
     return (
         <div key={id} className="relative bg-white rounded-2xl shadow-lg p-2 group hover:shadow-xl transition-all">
@@ -37,7 +38,14 @@ const Product = (props) => {
                 <button onClick={() => addToCart(id)}>
                     <IoMdCart className="text-[3rem] bg-secondary text-white hover:bg-primary duration-300 p-4 rounded-full shadow-md" />{cartItemAmount > 0 && <>({cartItemAmount})</>}</button>
                 {/*  */}
-                <FaRegHeart className="text-[3rem] bg-white text-black hover:bg-primary hover:text-white p-4 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                <FaRegHeart
+                    onClick={() => toggleFavouriteItem(id)}
+                    className="text-[3rem] bg-white text-black hover:bg-primary hover:text-white p-4 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                />
+
+
+
             </div>
         </div >
     )

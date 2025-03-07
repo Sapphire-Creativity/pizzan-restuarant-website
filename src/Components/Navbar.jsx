@@ -68,7 +68,6 @@ const NavBar = () => {
                             navigate("/cart");
                             window.scrollTo(0, 0);
                         }} className="hidden sm:inline-flex p-3 rounded-full border border-primary text-primary hover:text-secondary hover:border-secondary transition-all duration-300 text-[2.5rem]" />
-
                         <FaRegHeart onClick={() => {
                             navigate("/favourite-items");
                             window.scrollTo(0, 0);
@@ -133,6 +132,11 @@ const NavBar = () => {
                             <NavLink to="cart" onClick={toggleNavbar}>
                                 <li className="flex justify-between items-center group hover:text-red-500 transition duration-300">
                                     Cart <HiChevronRight className="text-lg group-hover:translate-x-1 transition-transform duration-300" />
+                                </li>
+                            </NavLink>
+                            <NavLink to="favourite-items" onClick={toggleNavbar}>
+                                <li className="flex justify-between items-center group hover:text-red-500 transition duration-300">
+                                    Wishlist <HiChevronRight className="text-lg group-hover:translate-x-1 transition-transform duration-300" />
                                 </li>
                             </NavLink>
                             <NavLink to="blog" onClick={toggleNavbar}>

@@ -8,7 +8,7 @@ import { MdEmail } from "react-icons/md";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { FaFacebookF, FaPinterestP } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
-import logo from "../assets/logo.svg";
+import logo from "../assets/logo-white (1).svg";
 
 const Footer = () => {
     return (
@@ -82,7 +82,7 @@ const Footer = () => {
                     <h3 className="font-lobster text-xl text-white">Explore</h3>
                     <ul className="space-y-2">
                         {["About Us", "Services", "Our Chefs", "Shop", "Reservation", "Contact Us"].map((item, index) => (
-                            <li key={index} className="flex items-center gap-2 hover:text-primary transition-all">
+                            <li key={index} className="flex items-center gap-2 text-primary hover:text-gray-100 transition-all">
                                 <IoIosArrowRoundForward />
                                 <Link to={`/${item.toLowerCase().replace(/ /g, "-")}`}>{item}</Link>
                             </li>
@@ -100,7 +100,7 @@ const Footer = () => {
                     <h3 className="font-lobster text-xl text-white">Quick Links</h3>
                     <ul className="space-y-2">
                         {["Sign Up", "Sign In", "Become a Seller", "Terms & Conditions", "Privacy Policy"].map((item, index) => (
-                            <li key={index} className="flex items-center gap-2 hover:text-primary transition-all">
+                            <li key={index} className="flex items-center gap-2 text-primary !hover:text-gray-100 transition-all important">
                                 <IoIosArrowRoundForward />
                                 <Link to={`/${item.toLowerCase().replace(/ /g, "-")}`}>{item}</Link>
                             </li>
@@ -135,12 +135,12 @@ const Footer = () => {
 
             {/* Copyright Section */}
             <motion.div
-                className="text-center py-4 bg-primary text-white text-sm"
+                className="text-center py-4 text-white text-xs"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.5 }}
             >
-                &copy; {new Date().getFullYear()} Pizzan. All Rights Reserved.
+                &copy; {new Date().getFullYear()} Developed by <a href="https://sapphirecreativity.com.ng" target="_blank" className="text-primary">Sapphire Creativity.</a>  All Rights Reserved.
             </motion.div>
         </motion.footer>
     );

@@ -19,7 +19,8 @@ import FoodCategory from '../Components/FoodCategory';
 import { MenuContext } from '../Context/MenuContext';
 
 const Home = () => {
-    const { addToCart, addFavouriteItems } = useContext(MenuContext)
+    const { addToCart, favouriteItems, toggleFavouriteItem } = useContext(MenuContext)
+
     return (
         <>
             <HeroSlider />
@@ -59,7 +60,14 @@ const Home = () => {
                                 <div className='flex items-center justify-between gap-5 my-5'>
                                     <FaRegEye className='text-[3rem] bg-white text-black hover:bg-primary hover:text-white duration-500 p-4 rounded-full' />
                                     <IoMdCart onClick={() => addToCart(data.id)} className='text-[3rem] bg-secondary text-white hover:bg-primary duration-500 p-4 rounded-full' />
-                                    <FaRegHeart onClick={() => addFavouriteItems(data.id)} className='text-[3rem] bg-white text-black hover:bg-primary hover:text-white duration-500 p-4 rounded-full' />
+                                    {/*  */}
+                                    <FaRegHeart
+                                        onClick={() => toggleFavouriteItem(data.id)}
+                                        className={`text-[3rem] p-4 rounded-full duration-500 ${favouriteItems.includes(data.id)
+                                            ? "bg-primary text-white"
+                                            : "bg-white text-black hover:bg-primary hover:text-white"
+                                            }`}
+                                    />
                                 </div>
 
                                 {/* Food Details */}
