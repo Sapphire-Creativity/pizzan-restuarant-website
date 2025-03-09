@@ -5,7 +5,7 @@ import chefThree from "./chef-3.jpg";
 import chefFour from "./chef-4.jpg";
 import chefFive from "./chef-5.jpg";
 
-export const SlideFoodMenu = [
+export const MainFoodMenu = [
 	{
 		id: 1,
 		name: "Classic Cheeseburger",

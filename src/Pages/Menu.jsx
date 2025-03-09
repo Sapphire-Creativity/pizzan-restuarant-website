@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import OtherHeader from "../Components/OtherHeader";
 import heroImage from "../assets/offer_banner_1.jpg";
-import { SlideFoodMenu } from "../assets/data";
+import { MainFoodMenu } from "../assets/data";
 import Product from "../Components/Product";
 
 const categories = ["All", "Pizza", "Salads", "Burgers", "Appetizers", "Desserts", "Drinks", "Main Course"];
 
 const Menu = () => {
-  const [filterItems, setFilterItems] = useState(SlideFoodMenu);
+  const [filterItems, setFilterItems] = useState(MainFoodMenu);
   const [activeCategory, setActiveCategory] = useState("All");
 
   const filterCategorySection = (category) => {
     if (category === "All") {
-      setFilterItems(SlideFoodMenu);
+      setFilterItems(MainFoodMenu);
     } else {
-      setFilterItems(SlideFoodMenu.filter((item) => item.category === category));
+      setFilterItems(MainFoodMenu.filter((item) => item.category === category));
     }
     setActiveCategory(category);
   };

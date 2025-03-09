@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { MenuContext } from '../Context/MenuContext'
 import heroImage from '../assets/offer_banner_1.jpg'
 import OtherHeader from '../Components/OtherHeader'
-import { SlideFoodMenu } from '../assets/data'
+import { MainFoodMenu } from '../assets/data'
 import CartItem from '../Components/CartItem'
 import { useNavigate } from 'react-router-dom'
 
@@ -19,7 +19,7 @@ const Cart = () => {
             <div className="container mx-auto px-6 py-20">
                 {/* Cart Items Section */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {SlideFoodMenu.map((product) => {
+                    {MainFoodMenu.map((product) => {
                         if (cartItems[product.id] !== 0) {
                             return <CartItem key={product.id} data={product} />
                         }

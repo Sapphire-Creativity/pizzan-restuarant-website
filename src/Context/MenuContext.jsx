@@ -1,12 +1,12 @@
 import React, { createContext, useState } from 'react'
-import { SlideFoodMenu } from '../assets/data'
+import { MainFoodMenu } from '../assets/data'
 
 // create content
 export const MenuContext = createContext(null)
 
 const getDefaultCart = () => {
 	let cart = {}
-	for (let i = 1; i < SlideFoodMenu.length + 1; i++) {
+	for (let i = 1; i < MainFoodMenu.length + 1; i++) {
 		cart[i] = 0
 	}
 	return cart
@@ -50,7 +50,7 @@ const MenuContextProvider = (props) => {
 		let totalAmount = 0;
 		for (const item in cartItems) {
 			if (cartItems[item] > 0) {
-				let itemInfo = SlideFoodMenu.find((product) => product.id === Number(item))
+				let itemInfo = MainFoodMenu.find((product) => product.id === Number(item))
 				totalAmount += cartItems[item] * itemInfo.price
 			}
 		}

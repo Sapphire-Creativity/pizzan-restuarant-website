@@ -6,7 +6,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import HeroSlider from '../Components/HeroSlide/HeroSlide';
 import Header from '../Components/Header';
-import { SlideFoodMenu } from '../assets/data';
+import { MainFoodMenu } from '../assets/data';
 import { FaRegEye } from "react-icons/fa";
 import { IoMdCart } from "react-icons/io";
 import { FaRegHeart } from "react-icons/fa6";
@@ -45,7 +45,7 @@ const Home = () => {
                     autoplay={{ delay: 4000, disableOnInteraction: true }}
                     className="pt-5 pb-14"
                 >
-                    {SlideFoodMenu.map((data) => (
+                    {MainFoodMenu.map((data) => (
                         <SwiperSlide key={data.id}>
                             <div className='py-10 rounded-2xl bg-accent text-center flex flex-col items-center justify-center cursor-pointer'>
 

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { MenuContext } from "../Context/MenuContext";
-import { SlideFoodMenu } from "../assets/data";
+import { MainFoodMenu } from "../assets/data";
 import OtherHeader from "./OtherHeader";
 import heroImage from "../assets/offer_banner_1.jpg";
 import { FaHeartBroken } from "react-icons/fa";
@@ -12,7 +12,7 @@ const FavouriteItems = () => {
 
 
     // Map IDs to actual items
-    const favouriteList = SlideFoodMenu.filter((item) => favouriteItems.includes(item.id));
+    const favouriteList = MainFoodMenu.filter((item) => favouriteItems.includes(item.id));
 
     return (
         <div>

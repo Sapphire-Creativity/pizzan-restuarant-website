@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SlideFoodMenu } from '../assets/data';
+import { MainFoodMenu } from '../assets/data';
 import { FaRegEye, FaRegHeart, FaStar } from 'react-icons/fa';
 import { IoMdCart } from 'react-icons/io';
 import Header from './Header';
@@ -7,10 +7,10 @@ import { BsArrowRight } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 
 const FoodCategory = () => {
-    const [items, setItems] = useState(SlideFoodMenu.slice(0, 4));
+    const [items, setItems] = useState(MainFoodMenu.slice(0, 4));
 
     const filterCategory = (dataItem) => {
-        const updatedItems = SlideFoodMenu.filter((currentData) => currentData.category === dataItem).slice(0, 4);
+        const updatedItems = MainFoodMenu.filter((currentData) => currentData.category === dataItem).slice(0, 4);
         setItems(updatedItems);
     };
 
@@ -25,7 +25,7 @@ const FoodCategory = () => {
                     <button
                         key={category}
                         className="whitespace-nowrap px-4 py-2 bg-primary text-white rounded-lg shadow-md hover:scale-105 transition-transform"
-                        onClick={() => (category === 'All' ? setItems(SlideFoodMenu.slice(0, 4)) : filterCategory(category))}
+                        onClick={() => (category === 'All' ? setItems(MainFoodMenu.slice(0, 4)) : filterCategory(category))}
                     >
                         {category}
                     </button>
