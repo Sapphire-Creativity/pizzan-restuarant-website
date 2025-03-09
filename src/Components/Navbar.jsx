@@ -25,6 +25,9 @@ const NavBar = () => {
 
     return (
         <div className="fixed top-0 w-full z-50">
+            {/* <div className="bg-primary flex justify-between p-4 w-full">
+                
+            </div> */}
             <div className="w-full static z-50 flex items-center justify-between bg-white py-3 px-5 sm:py-3 sm:px-10 soft-shadow">
                 {/* Logo */}
                 <div>
@@ -44,9 +47,9 @@ const NavBar = () => {
                         <NavLink to="menu">
                             <li>Menu</li>
                         </NavLink>
-                        <NavLink to="shop">
+                        {/* <NavLink to="shop">
                             <li>Shop</li>
-                        </NavLink>
+                        </NavLink> */}
                         <NavLink to="blog">
                             <li>Blog</li>
                         </NavLink>
@@ -123,11 +126,11 @@ const NavBar = () => {
                                     Menu <HiChevronRight className="text-lg group-hover:translate-x-1 transition-transform duration-300" />
                                 </li>
                             </NavLink>
-                            <NavLink to="shop" onClick={toggleNavbar}>
+                            {/* <NavLink to="shop" onClick={toggleNavbar}>
                                 <li className="flex justify-between items-center group hover:text-red-500 transition duration-300">
                                     Shop <HiChevronRight className="text-lg group-hover:translate-x-1 transition-transform duration-300" />
                                 </li>
-                            </NavLink>
+                            </NavLink> */}
                             <NavLink to="cart" onClick={toggleNavbar}>
                                 <li className="flex justify-between items-center group hover:text-red-500 transition duration-300">
                                     Cart <HiChevronRight className="text-lg group-hover:translate-x-1 transition-transform duration-300" />

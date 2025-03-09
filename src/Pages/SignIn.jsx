@@ -7,7 +7,7 @@ const SignIn = () => {
     const navigate = useNavigate()
     return (
         <>
-            {/* <OtherHeader title="Sign In" subTitle="We are glad to have you back!" backgroundImage={heroImage} /> */}
+            
 
             <div className="container">
                 <div className="w-full  sm:max-w-[30rem] mx-auto grid  grid-cols-1 items-center justify-center min-h-screen">

@@ -4,6 +4,7 @@ import { FaRegEye, FaRegHeart, FaStar } from 'react-icons/fa';
 import { IoMdCart } from 'react-icons/io';
 import Header from './Header';
 import { BsArrowRight } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
 
 const FoodCategory = () => {
     const [items, setItems] = useState(SlideFoodMenu.slice(0, 4));
@@ -13,6 +14,7 @@ const FoodCategory = () => {
         setItems(updatedItems);
     };
 
+    const navigate = useNavigate()
     return (
         <section className="container">
             <Header subTitle="Popular Menu" title="Our Popular Delicious Foods" />
@@ -61,7 +63,7 @@ const FoodCategory = () => {
             </div>
 
             <div className="flex items-center justify-center mt-14">
-                <button className='btn btn-primary'>Explore All Menu <BsArrowRight /></button>
+                <button className='btn btn-primary' onClick={() => { navigate("/menu"); window.scrollTo(0, 0) }}>Explore All Menu <BsArrowRight /></button>
             </div>
 
 
