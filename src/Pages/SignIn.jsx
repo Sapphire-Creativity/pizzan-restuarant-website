@@ -5,6 +5,10 @@ import { FaUser, FaEnvelope, FaLock, FaPaperPlane } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase/config';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+
 const SignIn = () => {
     const navigate = useNavigate()
 
@@ -18,18 +22,22 @@ const SignIn = () => {
             const userCredential = await signInWithEmailAndPassword(auth, email, password)
             const user = userCredential.user;
 
+            toast.success("You are logged in successfully!", {
+                position: "top-center",
+            });
+
             setTimeout(() => {
                 navigate("/dashboard")
             }, 3000)
         } catch (error) {
             console.log(error.message)
+            toast.error(error.message)
         }
     }
     return (
         <>
-
-
             <div className="container">
+                <ToastContainer />
                 <div className="w-full  sm:max-w-[30rem] mx-auto grid  grid-cols-1 items-center justify-center min-h-screen">
 
                     <form onSubmit={handleSignIn} className="space-y-4 shadow-2xl rounded-2xl bg-white py-10 px-5 mx-auto w-full">

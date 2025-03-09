@@ -7,6 +7,8 @@ import { FaUser, FaEnvelope, FaLock, FaPaperPlane } from "react-icons/fa";
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth, db } from '../firebase/config';
 import { doc, setDoc } from 'firebase/firestore';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const SignUp = () => {
     const navigate = useNavigate()
 
@@ -23,7 +25,7 @@ const SignUp = () => {
         console.log(firstName, lastName, email, password)
 
         if (!firstName || !lastName || !email || !password) {
-            alert("Please fill all fields!")
+            toast.error("Please fill all fields!")
             return;
         }
 
@@ -38,7 +40,9 @@ const SignUp = () => {
                 lastName,
             })
 
-            alert("Registered successfully")
+
+            toast.success("Registered Successfully!", { position: "top-center" });
+
             setTimeout(() => {
                 navigate("/dashboard")
             }, 3000)
@@ -46,6 +50,7 @@ const SignUp = () => {
         } catch (error) {
 
             console.log(error.message)
+            toast.error(error.message, { position: "bottom-center" });
 
         }
 
@@ -56,6 +61,7 @@ const SignUp = () => {
         <>
             {/* <OtherHeader title="Sign Up" subTitle="Welcome! Kindly create an account" backgroundImage={heroImage} /> */}
             <div className="container">
+                <ToastContainer />
                 <div className="w-full  sm:max-w-[30rem] mx-auto grid  grid-cols-1 items-center justify-center min-h-screen">
 
                     <form onSubmit={handleSignUp} className="space-y-4 shadow-2xl rounded-2xl bg-white py-10 px-5 mx-auto w-full">
