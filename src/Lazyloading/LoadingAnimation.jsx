@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import pepperImage from "../assets/image-2.png";
-import foodPlateImage from "../assets/image-8-180x180.png";
+import foodPlateImage from "../assets/lazyload-image.png";
 
 const LoadingAnimation = () => {
   const [showPlate, setShowPlate] = useState(false);
