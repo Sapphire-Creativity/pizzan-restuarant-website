@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { MenuContext } from '../Context/MenuContext'
 import { FaRegEye, FaRegHeart, FaStar } from 'react-icons/fa'
 import { IoMdCart } from 'react-icons/io'
@@ -6,9 +6,13 @@ import { IoMdCart } from 'react-icons/io'
 
 const Product = (props) => {
     const { id, name, image, category, price, amountInStore } = props.data
+    const displayModal = props.displayModal
 
     const { addToCart, cartItems, favouriteItems, toggleFavouriteItem } = useContext(MenuContext)
     const cartItemAmount = cartItems[id]
+
+    // 
+
     return (
         <div key={id} className="relative bg-white rounded-2xl shadow-lg p-2 group hover:shadow-xl transition-all">
             {/* Food Image */}
@@ -30,7 +34,7 @@ const Product = (props) => {
             {/* Icons */}
             <div className="flex items-center justify-center my-5 gap-6">
                 {/* Eye & Heart (Hidden Initially, Visible on Hover) */}
-                <FaRegEye className="text-[3rem] bg-white text-black hover:bg-primary hover:text-white p-4 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <FaRegEye onClick={() => displayModal()} className="text-[3rem] bg-white text-black hover:bg-primary hover:text-white p-4 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 {/*  */}
 
                 {/* <button className="inline-flex text-xs bg-gray-100 p-3 rounded-lg" onClick={() => addToCart(id)}>Add to Cart {cartItemAmount > 0 && <>({cartItemAmount})</>}</button> */}
@@ -47,7 +51,16 @@ const Product = (props) => {
 
 
             </div>
+
+            {/* {modal && (
+                <div className="bg-primary h-20 w-20 absolute ">
+
+
+                </div>
+            )} */}
         </div >
+
+
     )
 }
 

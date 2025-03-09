@@ -2,7 +2,7 @@
 const OtherHeader = ({ backgroundImage, title, subTitle }) => {
     return (
         <header
-            className="w-full h-[70vh] relative bg-cover bg-center bg-no-repeat flex items-center justify-center text-white overflow-hidden "
+            className="w-full h-[50vh] relative bg-cover bg-center bg-no-repeat flex items-center justify-center text-white overflow-hidden "
             style={{ backgroundImage: `url(${backgroundImage})` }}>
             <div className="absolute inset-0 bg-secondary bg-opacity-30 flex flex-col gap-3 items-center justify-center text-center p-6">
                 <h2 className="font-workSans text-white font-medium text-2xl md:text-3xl">{title}</h2>

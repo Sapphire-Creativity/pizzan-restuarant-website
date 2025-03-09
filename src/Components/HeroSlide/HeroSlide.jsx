@@ -35,10 +35,11 @@ const HeroSlider = () => {
         <Swiper
             modules={[Pagination, Autoplay, EffectFade]}
             effect="fade"
+            speed={2000}
 
             pagination={{ clickable: true }}
-            autoplay={{ delay: 5000, disableOnInteraction: false }}
-            className="w-full h-[110vh] relative overflow-hidden"
+            autoplay={{ delay: 6000, disableOnInteraction: false }}
+            className="w-full h-[120vh] relative overflow-hidden"
         >
             {slides.map((slide) => (
                 <SwiperSlide key={slide.id}>

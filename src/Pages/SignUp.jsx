@@ -4,6 +4,9 @@ import heroImage from "../assets/offer_banner_1.jpg";
 import { useNavigate } from 'react-router-dom';
 import { MdEmail } from "react-icons/md";
 import { FaUser, FaEnvelope, FaLock, FaPaperPlane } from "react-icons/fa";
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth, db } from '../firebase/config';
+import { doc, setDoc } from 'firebase/firestore';
 const SignUp = () => {
     const navigate = useNavigate()
 
@@ -15,10 +18,38 @@ const SignUp = () => {
 
     console.log(firstName)
 
-    const handleSignUp = (e) => {
-        e.preventDefault()  
-
+    const handleSignUp = async (e) => {
+        e.preventDefault()
         console.log(firstName, lastName, email, password)
+
+        if (!firstName || !lastName || !email || !password) {
+            alert("Please fill all fields!")
+            return;
+        }
+
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user
+
+            // store user details in firestore
+            await setDoc(doc(db, "Users", user.uid), {
+                email: user.email,
+                firstName,
+                lastName,
+            })
+
+            alert("Registered successfully")
+            setTimeout(() => {
+                navigate("/dashboard")
+            }, 3000)
+
+        } catch (error) {
+
+            console.log(error.message)
+
+        }
+
+
     }
 
     return (
