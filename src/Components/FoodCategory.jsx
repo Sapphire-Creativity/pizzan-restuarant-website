@@ -37,7 +37,7 @@ const FoodCategory = () => {
                 {items.map((data) => (
                     <div key={data.id} className="relative bg-white rounded-2xl shadow-lg p-4 group hover:shadow-xl transition-all">
                         {/* Food Image */}
-                        <img src={data.image} alt={data.name} className="max-w-[45rem] h-auto mx-auto object-cover rounded-t-lg" />
+                        <img src={data.image} alt={data.name} className="max-w-[13rem] h-auto mx-auto object-cover rounded-t-lg" />
 
                         {/* Content */}
                         <div className="p-3 text-center">

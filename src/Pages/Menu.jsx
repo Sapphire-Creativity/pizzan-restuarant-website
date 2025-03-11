@@ -1,31 +1,38 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import ReactPaginate from "react-paginate";
 import OtherHeader from "../Components/OtherHeader";
 import heroImage from "../assets/offer_banner_1.jpg";
 import { MainFoodMenu } from "../assets/data";
 import Product from "../Components/Product";
 import { FaRegHeart } from "react-icons/fa6";
-import { MenuContext } from "../Context/MenuContext";
 
 const categories = ["All", "Pizza", "Salads", "Burgers", "Appetizers", "Desserts", "Drinks", "Main Course"];
 
 const Menu = () => {
-
   const [filterItems, setFilterItems] = useState(MainFoodMenu);
   const [activeCategory, setActiveCategory] = useState("All");
-  const [selectedProduct, setSelectedProduct] = useState(null); // Store the selected product
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
-  // const { addToCart, cartItems } = useContext(MenuContext)
-  // const cartItemAmount = cartItems[selectedProduct.id]
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 8;
 
+  // **1️⃣ Filtered & Paginated Data**
+  const offset = currentPage * itemsPerPage;
+  const paginatedItems = filterItems.slice(offset, offset + itemsPerPage);
+  const pageCount = Math.ceil(filterItems.length / itemsPerPage);
+
+  // **2️⃣ Handle Pagination Change**
+  const handlePageClick = ({ selected }) => {
+    setCurrentPage(selected);
+  };
+
+  // **3️⃣ Filter Products & Reset to Page 1**
   const filterCategorySection = (category) => {
-    if (category === "All") {
-      setFilterItems(MainFoodMenu);
-    } else {
-      setFilterItems(MainFoodMenu.filter((item) => item.category === category));
-    }
+    let filtered = category === "All" ? MainFoodMenu : MainFoodMenu.filter((item) => item.category === category);
+    setFilterItems(filtered);
     setActiveCategory(category);
+    setCurrentPage(0); // Reset to first page after filter change
   };
 
   // Show modal with selected product
@@ -37,7 +44,6 @@ const Menu = () => {
   const closeModal = () => {
     setSelectedProduct(null);
   };
-
   return (
     <section className="relative">
       <OtherHeader title="Menu" subTitle="" backgroundImage={heroImage} />
@@ -45,14 +51,14 @@ const Menu = () => {
       <div className="mx-auto px-6 py-20 grid grid-cols-1 sm:grid-cols-4 gap-8">
         {/* 🔍 Filter Section */}
         <div className="bg-white shadow-md rounded-lg p-5 sm:col-span-1">
-          <h2 className="text-base font-semibold mb-4">Filter Products</h2>
+          <h2 className="text-base font-semibold mb-4 text-center">Filter Products</h2>
 
           <div className="flex flex-wrap gap-3">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => filterCategorySection(category)}
-                className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 w-full
+                className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 sm:w-full mx-auto
                 ${activeCategory === category ? "bg-primary text-white" : "bg-gray-200 text-gray-800 hover:bg-primary hover:text-white"}`}
               >
                 {category}
@@ -61,9 +67,9 @@ const Menu = () => {
           </div>
         </div>
 
-        {/* 🍔 Menu List Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:col-span-3">
-          {filterItems.map((product, index) => (
+        {/* 🍔 Paginated Menu List Section */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 sm:col-span-3">
+          {paginatedItems.map((product, index) => (
             <div key={index} className="hover:scale-105 transition-transform duration-300">
               <Product data={product} displayModal={() => displayModal(product)} />
             </div>
@@ -71,7 +77,6 @@ const Menu = () => {
         </div>
       </div>
 
-      {/* ✅ MODAL for Selected Product */}
       <AnimatePresence>
         {selectedProduct && (
           <motion.div
@@ -112,6 +117,34 @@ const Menu = () => {
             </motion.div>
           </motion.div>
         )}
+
+
+        {/* ✅ Pagination */}
+        <div className="text-white">
+          <ReactPaginate
+            previousLabel={"←"}
+            nextLabel={"→"}
+            pageCount={pageCount}
+            onPageChange={handlePageClick}
+            containerClassName={
+              "pagination flex justify-center mt-6 space-x-2 sm:space-x-4"
+            }
+            pageClassName={
+              "inline-flex items-center px-3 py-2 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-100 hover:text-primary transition-all duration-300"
+            }
+            activeClassName={
+              "bg-primary text-neutral-50 border-primary px-3 py-2 rounded-md"
+            }
+            previousClassName={
+              "inline-flex items-center px-3 py-2 rounded-md bg-gray-200 hover:bg-gray-300 transition-all duration-300"
+            }
+            nextClassName={
+              "inline-flex items-center px-3 py-2 rounded-md bg-gray-200 hover:bg-gray-300 transition-all duration-300"
+            }
+          />
+        </div>
+
+
       </AnimatePresence>
     </section>
   );
